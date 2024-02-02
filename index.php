@@ -4,7 +4,7 @@
 
     //  variabili d'istanza
      public $title;
-     public $genres;
+     public $genres = [];
      public $language;
 
 
@@ -18,24 +18,41 @@
         }
 
         // metodo
-        public function getTitle () {
-            return $this -> title;
+        public function upperTitle() {
+            $upperTitle_var = strtoupper($this -> title);
+            echo "Title: {$upperTitle_var}, ";
+
+        }
+
+        // metodo
+        public function getInfo () {
+            
+            $allGenres = implode("/", $this -> genres);
+            echo "Genre: {$allGenres}, Language: {$this -> language}";
+            
         }
 
     }
 
-    $movie1 = new Movie('Inglourious Basterds', 'War', 'English');
-    $movie2 = new Movie('La vita è bella', 'Comedy', 'Italian');
+    $movie1 = new Movie('Inglourious Basterds',['War', 'Action'], 'English');
+    $movie2 = new Movie('La vita è bella', ['Comedy', 'Drama', 'War'], 'Italian');
 
 
-    var_dump($movie1);
+    //var_dump($movie1);
+  
+
+    //echo "<br>";
+
+    // var_dump($movie2);
+
+    $movie1 -> upperTitle();
+    $movie1 -> getInfo();
 
     echo "<br>";
+    echo "<br>";
 
-    var_dump($movie2);
-
-    
-    
+    $movie2 -> upperTitle();
+    $movie2 -> getInfo();
    
 
 
